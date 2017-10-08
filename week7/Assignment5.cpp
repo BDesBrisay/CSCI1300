@@ -79,3 +79,11 @@ float findMedian(float array[], int size) {
   }
   return median;
 }
+
+void simple2DMultiplication(int multiplier, int matrix[10][10]) {
+  for(int i = 0; i < 10; i++) {
+    for(int j = 0; j < 10; j++) {
+      matrix[i][j] = multiplier * matrix[i][j];
+    }
+  }
+}
