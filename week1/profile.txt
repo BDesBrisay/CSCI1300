@@ -1,0 +1,10 @@
+——Student Profile——
+
+Name: Bryce DesBrisay
+
+Major/minor: BA Computer Science
+
+Programming experience: HTML, CSS, Javascript, Riot JS, React JS, Java, C++
+
+What do you expect to learn in this course?
+In this course I expect to improve my C++ and general programming skills.
