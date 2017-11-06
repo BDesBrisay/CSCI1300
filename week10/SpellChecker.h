@@ -11,6 +11,7 @@ Assignment 7 - SpellChecker.h
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <ctype.h>
 
 using namespace std;
 
@@ -34,11 +35,12 @@ class SpellChecker {
     void split(string str, string del, string array[]);
     int search(string target, string array[], int size);
     int search2D(string target, string array[][2], int size);
+    string stripPunct(string sentence);
 
   private:
     char start_marker;
     char end_marker;
     string validWords[10000];
-    string correctedWords[10000][10000];
+    string correctedWords[10000][2];
 };
 #endif // SPELL_CHECKER_H

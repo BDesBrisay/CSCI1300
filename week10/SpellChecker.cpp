@@ -58,7 +58,7 @@ bool SpellChecker::readCorrectedWords(string fileName) {
   if (myFile.is_open()) {
     while (getline(myFile, line)) {
       string tempArray[2];
-      split(line, '\t', tempArray);
+      split(line, "\t", tempArray);
       correctedWords[idx][0] = tempArray[0];
       correctedWords[idx][1] = tempArray[1];
       idx++;
@@ -93,23 +93,29 @@ char SpellChecker::getEndMarker() {
   return end_marker;
 }
 
+// Repairs a word by first stripping it of punctuation and any capital letter
+// then it uses stringstream to tokenize the stripped sentence and looks it up
+// in the arrays validWords and correctedWords. If it is not in either arrays it
+// applies the start and end markers around the word. Lastly, it adds a space to
+// the end of the string and returns it.
 string SpellChecker::repair(string sentence) {
-  string repaired;
+  string str;
   string word;
+  string stripped = stripPunct(sentence);
 
-  stringstream ss(sentence);
+  stringstream ss(stripped);
 
   while (ss >> word) {
-    if(search(validWords, word, 10000) != -1) {
-      repaired += word;
-    } else if (search2D(correctedWords, word, 10000) != -1) {
-      repaired += correctedWords[search2D(correctedWords, word, 10000)][1];
+    if(search(word, validWords, 10000) != -1) {
+      str += word;
+    } else if (search2D(word, correctedWords, 10000) != -1) {
+      str += correctedWords[search2D(word, correctedWords, 10000)][1];
     } else {
-      repaired += start_marker + word + end_marker;
+      str += start_marker + word + end_marker;
     }
-    repaired += " ";
+    str += " ";
   }
-  return repaired;
+  return str;
 }
 
 // Finds a char in a string and splits it into two values in an array
@@ -128,19 +134,43 @@ void SpellChecker::split(string str, string del, string array[]) {
 
 // Searches a given array for a given value and returns the index
 int SpellChecker::search(string target, string array[], int size) {
-    for (int i = 0; i < size; i++) {
-        if (array[i] == target) {
-            return i;
-        }
+  for (int i = 0; i < size; i++) {
+    if (array[i] == target) {
+      return i;
     }
-    return -1;
+  }
+  return -1;
 }
 
 int SpellChecker::search2D(string target, string array[][2], int size) {
-    for (int i = 0; i < size; i++) {
-        if (array[i][0] == target) {
-            return i;
-        }
+  for (int i = 0; i < size; i++) {
+    if (array[i][0] == target) {
+      return i;
     }
-    return -1;
+  }
+  return -1;
+}
+
+// Loops through each character of the sentence and checks if the character is
+// an uppercase letter and then makes it lowercase. Then it checks if the current
+// sentence character is puntucation and not in the middle of a word. Then if it
+// is not, then it adds it to the string that is returned
+string SpellChecker::stripPunct(string sentence) {
+  string noPunctStr = "";
+
+  for (int i = 0; i < sentence.length(); i++) {
+    if (isupper(sentence[i])) {
+      noPunctStr += tolower(sentence[i]);
+    } else {
+      bool isPunct = false;
+      if (ispunct(sentence[i]) && (i == 0 || i + 1 == sentence.length() || sentence[i + 1] == ' ' || sentence[i - 1] == ' ')) {
+        isPunct = true;
+      }
+      if (!isPunct) {
+        noPunctStr += sentence[i];
+      }
+    }
+  }
+
+  return noPunctStr;
 }
