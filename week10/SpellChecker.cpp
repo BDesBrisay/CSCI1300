@@ -157,20 +157,30 @@ int SpellChecker::search2D(string target, string array[][2], int size) {
 // is not, then it adds it to the string that is returned
 string SpellChecker::stripPunct(string sentence) {
   string noPunctStr = "";
+  string punct = ".?-/,!(){}[]_:;<>";
 
   for (int i = 0; i < sentence.length(); i++) {
     if (isupper(sentence[i])) {
       noPunctStr += tolower(sentence[i]);
     } else {
       bool isPunct = false;
-      if (ispunct(sentence[i]) && (i == 0 || i + 1 == sentence.length() || sentence[i + 1] == ' ' || sentence[i - 1] == ' ')) {
-        isPunct = true;
+      for (int j = 0; j < punct.length(); j++) {
+        if (sentence[i] == punct[j] && ( sentence[i + 1] == ' ' || sentence[i - 1] == ' ') || i == 0 || i + 1 == sentence.length()) {
+          isPunct = true;
+          break;
+        }
       }
       if (!isPunct) {
         noPunctStr += sentence[i];
       }
     }
   }
+
+  /*
+  if (ispunct(sentence[i]) && (i == 0 || i + 1 == sentence.length() || sentence[i + 1] == ' ' || sentence[i - 1] == ' ')) {
+    isPunct = true;
+  }
+  */
 
   return noPunctStr;
 }

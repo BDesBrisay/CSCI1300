@@ -26,10 +26,10 @@ class WordCounts {
     int getTally(string word);
     void resetTally();
     int mostTimes(string[], int[], int);
+    void sort(int counts[], string words[], int size);
 
   private:
     string lowerNoPunctuation(string, string);
-    void sort(int counts[], string words[], int size);
     int search(string target, string array[], int size);
     string stripPunct(string sentence);
 

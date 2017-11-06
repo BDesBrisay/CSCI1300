@@ -48,7 +48,7 @@ int WordCounts::getTally(string word) {
 
 // Resets all word counts to 0
 void WordCounts::resetTally() {
-  for (int i = 0; i < 9999; i++) {
+  for (int i = 0; i < 1000; i++) {
     counts[i] = 0;
   }
 }
@@ -56,14 +56,11 @@ void WordCounts::resetTally() {
 
 // sorts arrays and finds which word has the highest countand returns the count
 int WordCounts::mostTimes(string newWords[], int newCounts[], int n) {
-    cout << "1: " << counts[0] << words[0] << endl;
-    sort(counts, words, 9999);
-    cout << "2: " << counts[0] << words[0] << endl;
+    sort(counts, words, 1000);
     for (int i = 0; i < n; i++) {
         newWords[i] = words[i];
         newCounts[i] = counts[i];
     }
-    cout << "3: " << counts[0] << words[0] << endl;
     return counts[0];
 }
 
@@ -86,7 +83,7 @@ void WordCounts::sort(int newCounts[], string newWords[], int size) {
 }
 
 
-// strips punctuation and case
+// strips punctuation and case from a string
 string WordCounts::stripPunct(string sentence) {
   string noPunctStr = "";
 
@@ -107,7 +104,7 @@ string WordCounts::stripPunct(string sentence) {
   return noPunctStr;
 }
 
-//finds target in array
+//finds target value in array and returns index
 int WordCounts::search(string target, string array[], int size) {
   for (int i = 0; i < size; i++) {
     if (array[i] == target) {
