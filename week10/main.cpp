@@ -26,17 +26,14 @@ int main() {
 
   WordCounts wordCounts;
 
-  wordCounts.tallyWords("the brown fox.");
-  wordCounts.tallyWords("the red fox.");
-  wordCounts.tallyWords("teh blue fox! cat.");
+  wordCounts.tallyWords("The quick brown fox jumped over the lazy dog!");
+  wordCounts.tallyWords("The dog then jumped over fourteen chickens.");
 
   cout << wordCounts.getTally("the") << endl;
-  cout << wordCounts.getTally("brown") << endl;
-  cout << wordCounts.getTally("fox") << endl;
-  cout << wordCounts.getTally("red") << endl;
-  cout << wordCounts.getTally("blue") << endl;
-  cout << wordCounts.getTally("cat") << endl;
-  cout << wordCounts.getTally("teh") << endl;
+  cout << wordCounts.getTally("quick") << endl;
+  cout << wordCounts.getTally("dog") << endl;
+  cout << wordCounts.getTally("over") << endl;
+  cout << wordCounts.getTally("fourteen") << endl;
 
   string words[7];
   int counts[7];

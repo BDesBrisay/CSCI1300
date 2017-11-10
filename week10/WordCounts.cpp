@@ -16,9 +16,9 @@ WordCounts::~WordCounts() {
 
 // counts word in sentence
 void WordCounts::tallyWords(string sentence) {
-    string normalized = stripPunct(sentence);
+    string stripped = stripPunct(sentence);
     string token;
-    stringstream ss(normalized);
+    stringstream ss(stripped);
     while (ss >> token) {
       int index = search(token, words, 9999);
       if (index != -1) {
