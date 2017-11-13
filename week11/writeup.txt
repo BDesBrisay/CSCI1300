@@ -1,0 +1,33 @@
+Author: Bryce DesBrisay
+Recitation: Arcadia 210
+Assignment 8 - Write up
+
+What is your project?
+I have decided to make a Pokemon game where two players can battle each other.
+You pick your team and then go into your battle and try to defeat the other
+person.
+
+What is the goal of this project?
+The goal of this project is to be able to play Pokemon against one of your
+friends and have fun. You will also be able to play multiple rounds if you'd
+like. I will also learn more about c++ and class implementation through this.
+
+Why did you design your classes this way?
+Well I did it the way I did because the game of Pokemon can be broken down into
+repeatable components that can be used over and over with differing characteristics.
+Because of this I made four classes called Arena, Player, Pokemon, and Move.
+These are the basics of the game and come together to make it complete.
+
+Why these data members and how will you use them?
+I have chosen these data fields because they are the necessary pieces for a
+game like this. I will manipulate and read them periodically throughout the program
+in order to make the game work. For example, when one Pokemon uses its move on
+another Pokemon, I will have to lower the health of that Pokemon by the amount of
+damage the move causes.
+
+Explain how the design meets the requirements.
+This meets the requirements because there are more than enough classes with the
+right amount of data points and appropriate methods. I will also use the user
+input to determine parts of the game. I will also use multiple of every loop or
+conditional in c++ as well as reading a file input to define the Pokemon and
+their moves.

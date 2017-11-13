@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <fstream>
-#include "Moves.h"
+#include "Move.h"
 
 using namespace std;
 
@@ -14,10 +14,11 @@ class Pokemon {
   public:
     Pokemon();
     Pokemon(string);
-    Pokemon(string, int, Move, Move, Move, Move);
+    Pokemon(string, Move, Move, Move, Move);
     ~Pokemon();
 
     void setName();
+    void setType();
     void setHealth();
     void setMove1();
     void setMove2();
@@ -25,6 +26,7 @@ class Pokemon {
     void setMove4();
 
     string getName();
+    string getType();
     int getHealth();
     Move getMove1();
     Move getMove2();
@@ -32,6 +34,7 @@ class Pokemon {
     Move getMove4();
 
     string name;
-    int health;
+    string type;
+    int health = 100;
     Move moves[4];
 }
