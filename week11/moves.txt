@@ -1,0 +1,4 @@
+hydropump,water,13,25
+fly,flying,20,15
+dig,ground,10,30
+chop,fighting,10,20

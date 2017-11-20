@@ -4,6 +4,9 @@
   Assignment 8 - Pokemon
 */
 
+#ifndef POKEMON_H
+#define POKEMON_H
+
 #include <iostream>
 #include <fstream>
 #include "Move.h"
@@ -17,24 +20,22 @@ class Pokemon {
     Pokemon(string, Move, Move, Move, Move);
     ~Pokemon();
 
-    void setName();
-    void setType();
-    void setHealth();
-    void setMove1();
-    void setMove2();
-    void setMove3();
-    void setMove4();
+    void setName(string);
+    void setType(string);
+    void setHealth(int);
+    void setMove1(Move);
+    void setMove2(Move);
+    void setMove3(Move);
+    void setMove4(Move);
 
     string getName();
     string getType();
     int getHealth();
-    Move getMove1();
-    Move getMove2();
-    Move getMove3();
-    Move getMove4();
+    Move& getMove(int);
 
     string name;
     string type;
-    int health = 100;
+    int health;
     Move moves[4];
-}
+};
+#endif // POKEMON_H

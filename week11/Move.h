@@ -4,6 +4,9 @@
   Assignment 8 - Move
 */
 
+#ifndef MOVE_H
+#define MOVE_H
+
 #include <iostream>
 #include <fstream>
 
@@ -27,6 +30,7 @@ class Move {
 
     string name;
     string type;
-    int speed;
-    int damage;
-}
+    int speed = 1;
+    int damage = 20;
+};
+#endif // MOVE_H

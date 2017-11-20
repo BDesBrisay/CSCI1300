@@ -4,6 +4,9 @@
   Assignment 8 - Player
 */
 
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include <iostream>
 #include <fstream>
 #include "Pokemon.h"
@@ -18,6 +21,7 @@ class Player {
     Player(string, int, int, Pokemon, Pokemon, Pokemon);
     ~Player();
 
+    void setActivePokemon(int);
     void setName(string);
     void setHeight(int);
     void setWeight(int);
@@ -25,15 +29,16 @@ class Player {
     void setPokemon2(Pokemon);
     void setPokemon3(Pokemon);
 
-    string getName(string);
-    int getHeight(int);
-    int getWeight(int);
-    Pokemon getPokemon1(Pokemon);
-    Pokemon getPokemon2(Pokemon);
-    Pokemon getPokemon3(Pokemon);
+    string getName();
+    int getHeight();
+    int getWeight();
+    Pokemon& getPokemon(int);
+    int getActivePokemon();
 
     string name;
-    string height;
-    string weight;
+    int height = 12;
+    int weight = 120;
+    int activePokemon;
     Pokemon team[3];
-}
+};
+#endif // PLAYER_H
