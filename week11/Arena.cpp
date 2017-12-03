@@ -175,6 +175,7 @@ void Arena::turn(Player& one, Player& two, int player) {
     }
   }
 
+  battleLog.close();
 }
 
 int Arena::checkWin(){
