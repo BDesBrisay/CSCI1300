@@ -1,0 +1,4 @@
+bryce, 1 2 0 2 5
+david, 2 5 1 0
+adam, 0 0 5
+jack, 0
